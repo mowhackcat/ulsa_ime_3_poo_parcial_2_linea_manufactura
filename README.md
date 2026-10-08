@@ -12,7 +12,7 @@ La guía completa del proyecto está en [PROYECTO.md](PROYECTO.md). Léanla ante
 | 2 | | | | | |
 | 3 | | | | | |
 | 4 | | | | | |
-| 5 | | | | | |
+| 5 IME | 25238 | Daniel Guerra  | mowhackcat| Torno CNC| Husillo|
 | 6 (solo equipo de seis) | | | | | |
 
 ## 2. Orden de la línea

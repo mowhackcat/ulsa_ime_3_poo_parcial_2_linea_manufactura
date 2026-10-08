@@ -32,29 +32,29 @@ protected:
     void agregarTiempo(int segundos);
 
     // Pone la máquina en falla.
-    void reportarFalla();
+    void reportarFalla(); //
 
     // Quita la falla y suma un paro.
     void registrarMantenimiento();
 
 public:
     // Crea una máquina apagada, sin falla y con sus contadores en cero.
-    Maquina(int id, const std::string& nombre);
+    Maquina(int id, const std::string& nombre);//
 
     // Enciende la máquina. Encender no quita una falla.
-    void encender();
+    void encender();//
 
     // Apaga la máquina.
-    void apagar();
+    void apagar();//
 
-    bool estaEncendida() const;
-    bool estaEnFalla() const;
+    bool estaEncendida() const;//
+    bool estaEnFalla() const;//
 
     // true solo si la máquina está encendida y sin falla.
-    bool puedeProcesar() const;
+    bool puedeProcesar() const;//
 
-    int getId() const;
-    std::string getNombre() const;
+    int getId() const; //
+    std::string getNombre() const; //
     int getPiezasProcesadas() const;
     int getTiempoTrabajado() const;
     int getParos() const;

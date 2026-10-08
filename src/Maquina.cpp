@@ -2,6 +2,7 @@
 
 #include <string>
 #include <iostream>
+
 Maquina::Maquina(int id, const std::string& nombre):nombre(nombre), id(id){}
 
  void Maquina::encender(){
@@ -27,20 +28,28 @@ Maquina::Maquina(int id, const std::string& nombre):nombre(nombre), id(id){}
  bool Maquina::puedeProcesar() const {
     if(this->estaEncendida() == true && estaEnFalla() == false){
         return true;
+
     }else return false;
  }
 
 void Maquina::reportarFalla(){
-    if(this->enFalla == true){
+this->enFalla == true;
         std::cout << "falla detectada, inicializando mantenimiento\n";
        apagar();
        std::cout << "...Realizando mantenimiento\n";
-    }
 
 
 }
 
- int Maquina::getId() const{
+ void Maquina::registrarMantenimiento(){
+    std::cout << "regristrando mantenimiento...\n";
+    paros ++;
+ };
+
+ int Maquina::getPiezasProcesadas() const{
+    return this->piezasProcesadas;
+ }
+  int Maquina::getId() const{
     return this->id;
  };
 
@@ -48,3 +57,7 @@ void Maquina::reportarFalla(){
         return nombre;
     };
 
+ void Maquina::mostrarEstado () const{
+   std::cout << getNombre() << getId()  << "..........";
+
+ }
