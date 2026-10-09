@@ -1,38 +1,31 @@
 #include "Lente.h"
 
-Lente::Lente(int vidaUtil) {
-    this->vidaUtil = vidaUtil > 0 ? vidaUtil : 1;
-    this->desgaste = 0;
-    this->limpio = true;
+Lente::Lente(int limite) {
+    suciedadAcumulada = 0;
+    limiteSuciedad = limite > 0 ? limite : 1;
 }
 
-void Lente::desgastar() {
-    if (desgaste < vidaUtil) {
-        desgaste++;
+void Lente::acumularSuciedad(int puntos) {
+    if (puntos > 0) {
+        // Acumula sin superar el limite.
+        int disponible = limiteSuciedad - suciedadAcumulada;
+
+        if (puntos >= disponible) {
+            suciedadAcumulada = limiteSuciedad;
+        } else {
+            suciedadAcumulada += puntos;
+        }
     }
 }
 
-void Lente::limpiar() {
-    limpio = true;
+void Lente::limpiarLente() {
+    suciedadAcumulada = 0;
 }
 
-void Lente::reemplazar() {
-    desgaste = 0;
-    limpio = true;
+bool Lente::estaOpaco() const {
+    return suciedadAcumulada >= limiteSuciedad;
 }
 
-bool Lente::estaDesgastado() const {
-    return desgaste >= vidaUtil;
-}
-
-bool Lente::estaLimpio() const {
-    return limpio;
-}
-
-int Lente::getVidaUtil() const {
-    return vidaUtil;
-}
-
-int Lente::getDesgaste() const {
-    return desgaste;
+int Lente::obtenerSuciedad() const {
+    return suciedadAcumulada;
 }
