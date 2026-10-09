@@ -2,23 +2,18 @@
 #define LENTE_H
 
 class Lente {
-    private:
-    int vidaUtil;
-    int desgaste;
-    bool limpio;
+private:
+    int suciedadAcumulada;
+    int limiteSuciedad;
 
-    public:
-    Lente(int vidaUtil);
+public:
+    Lente(int limite);
 
-    void desgastar();
-    void limpiar();
-    void reemplazar();
+    void acumularSuciedad(int puntos);
+    void limpiarLente();
 
-    bool estaDesgastado() const;
-    bool estaLimpio() const;
-
-    int getVidaUtil() const;
-    int getDesgaste() const;
+    bool estaOpaco() const;
+    int obtenerSuciedad() const;
 };
 
 #endif
