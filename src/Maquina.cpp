@@ -7,12 +7,10 @@ Maquina::Maquina(int id, const std::string& nombre):nombre(nombre), id(id){}
 
 void Maquina::encender(){
    this->encendida = true;
-   std::cout << "se encendio" << this->nombre ;
 } 
 
 void Maquina::apagar(){
    this->encendida = false;
-   std::cout << "se apago" << this->nombre ;
 }
 
 bool Maquina::estaEncendida() const{
@@ -29,21 +27,23 @@ bool Maquina::estaEnFalla() const{
 
 bool Maquina::puedeProcesar() const {
    if(this->estaEncendida() == true && estaEnFalla() == false){
-      std::cout << "listo para trabajar\n";
       return true;
    }else return false;
 }
 
 void Maquina::reportarFalla(){
-   estaEnFalla() == true;
+   if(estaEnFalla() == true){
    std::cout << "falla detectada, inicializando mantenimiento\n";
    apagar();
    std::cout << "...Realizando mantenimiento\n";
+   registrarMantenimiento();
+   }
 }
 
 void Maquina::registrarMantenimiento(){
-   std::cout << "regristrando mantenimiento...\n";
-   paros ++;
+   this->paros ++;
+   this->enFalla=false;
+   this->encendida=true;
 };
 
 int Maquina::getPiezasProcesadas() const{
@@ -63,7 +63,7 @@ int Maquina::getTiempoTrabajado() const {
 }
 
 int Maquina::getParos() const{
-return paros;
+return this->paros;
 }
 
 void Maquina::mostrarEstado () const{

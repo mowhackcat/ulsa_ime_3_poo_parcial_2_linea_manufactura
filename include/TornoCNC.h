@@ -3,19 +3,18 @@
 
 #include <string>
 #include "Maquina.h"
+#include "Husillo.h"
+
 
 class Torno : public Maquina {
-private: 
+protected: 
 int segundos;
-int limiteHusillo;
+Husillo husillo;
 
 public:
-
-Torno(int id, const std::string& nombre, int const limiteHusillo, int const segundos);
-
-bool LimiteDeProduccion();
-
-void trabajo(Torno&);
+Torno(int id, const std::string& nombre, int const segundos, int const limiteHusillo);
+bool limiteDeProduccion();
+void procesarPieza(Torno&);
 
 };
 #endif
