@@ -55,7 +55,7 @@ public:
 
     int getId() const; //
     std::string getNombre() const; //
-    int getPiezasProcesadas() const;
+    int getPiezasProcesadas() const;//
     int getTiempoTrabajado() const;
     int getParos() const;
 

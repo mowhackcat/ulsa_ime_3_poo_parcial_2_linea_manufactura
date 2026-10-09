@@ -16,5 +16,6 @@ Torno(int id, const std::string& nombre, int const limite, int const segundos);
 bool limiteAlcanzado();
 
 void trabajo();
+
 };
 #endif
