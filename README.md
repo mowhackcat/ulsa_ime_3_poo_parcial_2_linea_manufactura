@@ -8,7 +8,7 @@ La guía completa del proyecto está en [PROYECTO.md](PROYECTO.md). Léanla ante
 
 | Bloque | Matrícula | Nombre | Usuario de GitHub | Máquina | Componente |
 | --- | --- | --- | --- | --- | --- |
-| 1 |25317 | Yair Alberto Flores Peña| yairflores09|cortadora laser |lente |
+| 1 |25317|Yair Alberto Flores Peña |yairflores09 |cortadora laser|lente |
 | 2 | | | | | |
 | 3 | | | | | |
 | 4 | | | | | |
