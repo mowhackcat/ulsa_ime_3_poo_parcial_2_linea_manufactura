@@ -7,15 +7,15 @@
 class Torno : public Maquina {
 private: 
 int segundos;
-int limite;
+int limiteHusillo;
 
 public:
 
-Torno(int id, const std::string& nombre, int const limite, int const segundos);
+Torno(int id, const std::string& nombre, int const limiteHusillo, int const segundos);
 
-bool limiteAlcanzado();
+bool LimiteDeProduccion();
 
-void trabajo();
+void trabajo(Torno&);
 
 };
 #endif

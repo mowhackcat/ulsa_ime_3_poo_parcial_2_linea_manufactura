@@ -29,6 +29,7 @@ bool Maquina::estaEnFalla() const{
 
 bool Maquina::puedeProcesar() const {
    if(this->estaEncendida() == true && estaEnFalla() == false){
+      std::cout << "listo para trabajar\n";
       return true;
    }else return false;
 }
@@ -54,7 +55,7 @@ int Maquina::getId() const{
 };
 
 std::string Maquina::getNombre() const{
-   return nombre;
+   return this->nombre;
 };
 
 int Maquina::getTiempoTrabajado() const {
