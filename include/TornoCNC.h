@@ -9,11 +9,13 @@
 class Torno : public Maquina {
 protected: 
 int segundos;
+bool estadoFalla;
 Husillo husillo;
 
 public:
-Torno(int id, const std::string& nombre, int const segundos, int const limiteHusillo);
-bool limiteDeProduccion();
+Torno(int id, const std::string& nombre, bool estadoFalla ,int const limiteHusillo, bool estadoHusilloFalla,  int contador);
+bool fallaDeTorno();
+void mantenimiento();
 void procesarPieza(Torno&);
 
 };

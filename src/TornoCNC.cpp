@@ -3,28 +3,30 @@
 #include <string>
 #include <iostream>
 
-Torno::Torno(int id, const std::string& nombre, int const segundos, int const limiteHusillo): Maquina(id, nombre), 
-segundos(segundos), husillo(limiteHusillo)
+Torno::Torno(int id, const std::string& nombre, bool estadoFalla ,int const limiteHusillo, bool estadoHusilloFalla,  int contador): Maquina(id, nombre), 
+estadoFalla(estadoFalla), husillo(limiteHusillo, estadoHusilloFalla, contador)
 {
 this->segundos = 20;
 
 };
 
-bool Torno::limiteDeProduccion(){
-    return husillo.limiteDeProduccion();
+bool Torno::fallaDeTorno(){
+    return husillo.fallaHusillo();
+}
+
+void Torno::mantenimiento(){
+    if(estadoFalla == true){
+    husillo.mantenimiento();
+    this->estadoFalla = false;
+    }
 }
 
 void procesarPieza(Torno& torno){
-while (true)
-{
  torno.encender();
  torno.estaEnFalla();
  torno.puedeProcesar();
- torno.limiteDeProduccion();
-if(torno.limiteDeProduccion()){
+if(torno.fallaDeTorno()){
     std::cout << "se llego al limite\n";
-    continue;
-}
-
+    torno.mantenimiento();
 }
 }
