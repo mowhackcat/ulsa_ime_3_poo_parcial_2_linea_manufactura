@@ -14,6 +14,14 @@ bool Torno::fallaDeTorno(){
     return husillo.fallaHusillo();
 }
 
+void Torno::registrarPiezaTorno(){
+    Maquina::registrarPieza();
+}
+
+void Torno::reportarFallaTorno(){
+    Maquina::reportarFalla();
+}
+
 void Torno::mantenimiento(){
     if(estadoFalla == true){
     husillo.mantenimiento();
@@ -24,9 +32,11 @@ void Torno::mantenimiento(){
 void procesarPieza(Torno& torno){
  torno.encender();
  torno.estaEnFalla();
- torno.puedeProcesar();
 if(torno.fallaDeTorno()){
     std::cout << "se llego al limite\n";
+    torno.reportarFallaTorno();
     torno.mantenimiento();
+}else if(torno.puedeProcesar()){
+    torno.registrarPiezaTorno();
 }
 }

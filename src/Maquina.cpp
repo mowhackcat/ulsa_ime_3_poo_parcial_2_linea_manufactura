@@ -5,6 +5,10 @@
 
 Maquina::Maquina(int id, const std::string& nombre):nombre(nombre), id(id){}
 
+void Maquina::registrarPieza(){
+this->piezasProcesadas++;
+}
+
 void Maquina::encender(){
    this->encendida = true;
 } 
@@ -33,9 +37,7 @@ bool Maquina::puedeProcesar() const {
 
 void Maquina::reportarFalla(){
    if(estaEnFalla() == true){
-   std::cout << "falla detectada, inicializando mantenimiento\n";
    apagar();
-   std::cout << "...Realizando mantenimiento\n";
    registrarMantenimiento();
    }
 }

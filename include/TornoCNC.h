@@ -17,6 +17,7 @@ Torno(int id, const std::string& nombre, bool estadoFalla ,int const limiteHusil
 bool fallaDeTorno();
 void mantenimiento();
 void procesarPieza(Torno&);
-
+void registrarPiezaTorno();
+void reportarFallaTorno();
 };
 #endif
