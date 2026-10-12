@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 
-Maquina::Maquina(int id, const std::string& nombre):nombre(nombre), id(id){}
+Maquina::Maquina(int id, const std::string& nombre):id(id), nombre(nombre){}
 
 void Maquina::registrarPieza(){
 this->piezasProcesadas++;

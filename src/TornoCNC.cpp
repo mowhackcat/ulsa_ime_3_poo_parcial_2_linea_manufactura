@@ -37,11 +37,10 @@ void Torno::mantenimiento(){
     }
 }
 
-void procesarPieza(Torno& torno){
+void Torno::procesarPieza(Torno& torno){
  torno.encender();
  torno.estaEnFalla();
 if(torno.fallaDeTorno()){
-    std::cout << "se llego al limite\n";
     torno.reportarFallaTorno();
     torno.mantenimiento();
 }else if(torno.puedeProcesar()){

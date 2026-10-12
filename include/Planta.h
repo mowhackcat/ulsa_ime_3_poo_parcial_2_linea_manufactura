@@ -9,12 +9,18 @@
 
 class Planta {
 private:
-std::vector<Maquina*> maquinas;
+std::vector<Maquina*> maquina;
 int repeticionesGlobales;
 
 public: 
 
+Planta(int const repeticionesGlobales);
 
+bool agregarMaquina(Maquina* maquina);//funcion para agregar las maquinas a un vector y recibir una confirmacion
+
+int cantidadMaquinas();
+
+void mostrar();
 };
 
 #endif

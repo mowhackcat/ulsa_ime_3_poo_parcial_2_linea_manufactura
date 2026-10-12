@@ -1,5 +1,5 @@
-#ifndef HUSILLO.H
-#define HUSILLO.H
+#ifndef HUSILLO_H
+#define HUSILLO_H
 
 #include <string>
 
@@ -16,7 +16,6 @@ bool limiteDeProduccion();
 bool fallaHusillo();
 void mantenimiento();
 void estado();
-void trabajo();
 };
 
 
