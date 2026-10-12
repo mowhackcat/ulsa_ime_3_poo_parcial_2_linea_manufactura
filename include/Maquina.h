@@ -25,17 +25,17 @@ protected:
     // avisan a la base lo que ocurrió durante su operación.
 
     // Suma una pieza procesada.
-    void registrarPieza();
+    void registrarPieza();//
 
     // Acumula tiempo trabajado. Cada máquina derivada lo llama con su
     // propio tiempo por pieza. Los valores negativos no se aceptan.
-    void agregarTiempo(int segundos);
+    void agregarTiempo(int segundos);//
 
     // Pone la máquina en falla.
     void reportarFalla(); //
 
     // Quita la falla y suma un paro.
-    void registrarMantenimiento();
+    void registrarMantenimiento();//
 
 public:
     // Crea una máquina apagada, sin falla y con sus contadores en cero.
@@ -56,11 +56,11 @@ public:
     int getId() const; //
     std::string getNombre() const; //
     int getPiezasProcesadas() const;//
-    int getTiempoTrabajado() const;
-    int getParos() const;
+    int getTiempoTrabajado() const;//
+    int getParos() const;//
 
     // Muestra en pantalla los datos generales de la máquina.
-    void mostrarEstado() const;
+    void mostrarEstado() const;//
 };
 
 #endif

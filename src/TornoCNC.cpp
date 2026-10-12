@@ -10,8 +10,16 @@ this->segundos = 20;
 
 };
 
+int Torno::getSegundos() const{
+    return segundos;
+}
+
 bool Torno::fallaDeTorno(){
     return husillo.fallaHusillo();
+}
+
+void Torno::agregarTiempoTorno(int segundos){
+    Maquina::agregarTiempo(segundos);
 }
 
 void Torno::registrarPiezaTorno(){
@@ -38,5 +46,6 @@ if(torno.fallaDeTorno()){
     torno.mantenimiento();
 }else if(torno.puedeProcesar()){
     torno.registrarPiezaTorno();
+    torno.agregarTiempoTorno(torno.getSegundos());
 }
 }

@@ -19,5 +19,7 @@ void mantenimiento();
 void procesarPieza(Torno&);
 void registrarPiezaTorno();
 void reportarFallaTorno();
+void agregarTiempoTorno(int segundos);
+int getSegundos() const;
 };
 #endif

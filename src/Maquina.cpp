@@ -9,6 +9,10 @@ void Maquina::registrarPieza(){
 this->piezasProcesadas++;
 }
 
+void Maquina::agregarTiempo(int segundos){
+   this->tiempoTrabajado+= segundos;
+}
+
 void Maquina::encender(){
    this->encendida = true;
 } 
