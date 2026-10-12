@@ -10,7 +10,7 @@ Husillo::Husillo(int const limiteHusillo,bool estadoHusilloFalla, int contador):
 }
 
 bool Husillo::limiteDeProduccion(){
-
+contador++;
 return (contador % limiteHusillo == 0);
 }
 
@@ -31,7 +31,6 @@ void Husillo::mantenimiento(){
 void Husillo::estado(){
     std::cout << "husillo en falla:.. " << estadoHusilloFalla << "\n";
 }
-
 
 
 
