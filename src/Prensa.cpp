@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 
-Prensa::Prensa(const std::string& id, const std::string& nombre, int tiempoPorPieza, int vidaTroquel, double fuerzaTensionKN)
+Prensa::Prensa(int id, const std::string& nombre, int tiempoPorPieza, int vidaTroquel, int fuerzaTension)
     : Maquina(id, nombre), troquel(vidaTroquel) {
     
     if (tiempoPorPieza <= 0) {
@@ -61,13 +61,13 @@ void Prensa::mostrarEstado() const {
               << troquel.getPorcentajeVida() << "% vida util)" << std::endl;
 }
 
-void Prensa::setFuerzaTension(double fuerza) {
-    if (fuerza > 0.0) {
+void Prensa::setFuerzaTension(int fuerza) {
+    if (fuerza > 0) {
         this->fuerzaTension = fuerza;
     }
 }
 
-double Prensa::getFuerzaTensionKN() const {
+int Prensa::getFuerzaTension() const {
     return fuerzaTension;
 }
 
