@@ -3,8 +3,6 @@
 #include <string>
 #include <iostream>
 
-#include "Troquel.h"
-
 Troquel::Troquel(int vidaUtilMaxima) {
     if (vidaUtilMaxima <= 0) {
         this->vidaUtilMaxima = 10;
