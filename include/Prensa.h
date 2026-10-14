@@ -12,7 +12,7 @@ private:
     int fuerzaTension;  
 
 public:
-    Prensa(const std::string& id, const std::string& nombre, int tiempoPorPieza, int vidaTroquel, double fuerzaTensionKN);
+    Prensa(int id, const std::string& nombre, int tiempoPorPieza, int vidaTroquel, int fuerzaTension);
 
     void mostrarEstado() const;
 
