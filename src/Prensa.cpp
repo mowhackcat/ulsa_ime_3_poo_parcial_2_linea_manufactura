@@ -11,8 +11,8 @@ Prensa::Prensa(int id, const std::string& nombre, int tiempoPorPieza, int vidaTr
         this->tiempoPorPieza = tiempoPorPieza;
     }
 
-    if (fuerzaTension <= 0.0) {
-        this->fuerzaTension = 100.0; 
+    if (fuerzaTension <= 0) {
+        this->fuerzaTension = 100; 
     } else {
         this->fuerzaTension = fuerzaTension;
     }

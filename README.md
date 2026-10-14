@@ -11,7 +11,7 @@ La guía completa del proyecto está en [PROYECTO.md](PROYECTO.md). Léanla ante
 | 1 | 25317 | Yair Alberto Flores Peña | yairflores09 | cortadora laser | lente |
 | 2 | 22038 | Jesús René Pamanes Ferreira | TacocraftG | Impresora 3D | Extrusor |
 <<<<<<< Updated upstream
-| 3 | 22038| Daniel Alejandro Hernandez Sanchez | danielhernandez | prensa | Tronquel |
+| 3 | 25029| Daniel Alejandro Hernandez Sanchez | danielhernandez | prensa | Tronquel |
 | 4 | 25132 | Arturo Lugo Rodriguez |ArturoLugoRodriguez |Fresa|Heramienta de corte|
 =======
 | 3 | 25029| Daniel Alejandro Hernandez Sanchez | danielhernandez | prensa | Tronquel |
