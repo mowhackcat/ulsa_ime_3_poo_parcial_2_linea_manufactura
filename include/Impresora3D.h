@@ -5,8 +5,7 @@
 
 class Impresora3D : public Maquina {
 private:
-    int tiempoPorPieza;
-    int temperaturaCelsius;
+    int tiempoPorPieza = 120;
     Extrusor extrusor;
 
 public:
@@ -15,6 +14,4 @@ public:
     bool procesarPieza();
     void realizarMantenimiento();
     void mostrarEstado() const;
-    void calibrarTemperatura(int temp);
 };
-

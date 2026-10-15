@@ -2,11 +2,11 @@
 
 #include <iostream>
 
-Impresora3D::Impresora3D(int id, const std::string& nombre, int limiteExtrusor)
+Impresora3D::Impresora3D(int id, const std::string& nombre,
+                         int limiteExtrusor)
     : Maquina(id, nombre),
-      tiempoPorPieza(0),
-      temperaturaCelsius(0),
-      extrusor(limiteExtrusor) {}
+      extrusor(limiteExtrusor) 
+{}
 
 bool Impresora3D::procesarPieza() 
 {
@@ -59,16 +59,10 @@ void Impresora3D::realizarMantenimiento()
 void Impresora3D::mostrarEstado() const 
 {
     Maquina::mostrarEstado();
-    std::cout << "  - Estado del Extrusor: "
+    std::cout << "  - Tiempo por pieza: " << tiempoPorPieza << " segundos\n"
+              << "  - Desgaste del Extrusor: "
+              << extrusor.getUsoActual() << '/'
+              << extrusor.getLimiteUso() << " usos ("
               << (extrusor.estaAgotado() ? "Agotado (Falla)" : "Operativo")
-              << '\n';
-}
-
-//Esto solo esta para que la clase impresora tenga 2 al menos 2 atributos propios
-//(Sección 3.1 del enunciado)
-void Impresora3D::calibrarTemperatura(int temp) {
-    temperaturaCelsius = temp;
-    std::cout << "[" << getNombre()
-              << "] Calibrando temperatura del extrusor a "
-              << temperaturaCelsius << " C.\n";
+              << ")\n";
 }

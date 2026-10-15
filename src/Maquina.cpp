@@ -41,10 +41,7 @@ bool Maquina::puedeProcesar() const {
 }
 
 void Maquina::reportarFalla(){
-   if(estaEnFalla() == true){
-   registrarMantenimiento();
-   apagar();
-   }
+   this->enFalla = true;
 }
 
 void Maquina::registrarMantenimiento(){
