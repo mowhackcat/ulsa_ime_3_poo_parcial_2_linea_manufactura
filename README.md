@@ -12,7 +12,7 @@ La guía completa del proyecto está en [PROYECTO.md](PROYECTO.md). Léanla ante
 | 2 | 22038 | Jesús René Pamanes Ferreira | TacocraftG | Impresora 3D | Extrusor |
 | 3 | 25029| Daniel Alejandro Hernandez Sanchez | danielhernandez | prensa | Tronquel |
 | 4 | 25132 | Arturo Lugo Rodriguez |ArturoLugoRodriguez |Fresa|Heramienta de corte|
-| 5 IME | 25238 | Daniel Guerra  | mowhackcat| Torno CNC| Husillo|
+| 5 | 25238 | Daniel Guerra  | mowhackcat| Torno CNC| Husillo|
 | 6 (solo equipo de seis) | | | | | |
 
 ## 2. Orden de la línea
@@ -34,18 +34,18 @@ Escriban el comando exacto que usa el equipo para compilar y el comando para eje
 
 **¿En qué momento exacto falla una máquina?**
 
-[Inserta aquí tu respuesta]
+cuando su componenque que llega a sufrir de desgasta falla
 
 **¿El mantenimiento suma tiempo al turno? ¿Cuánto?**
 
-[Inserta aquí tu respuesta]
+no suma tiempo
 
 ## 5. Cálculo a mano del reporte
 
 Lote de 20 piezas. Una fila por máquina.
 
 | Máquina | Segundos por pieza | Límite del componente | Fallas en 20 piezas | Tiempo trabajado |
-| --- | --- | --- | --- | --- |
+| TornoCNC- | -30- | -8- | -2- | -600- |
 | | | | | |
 | | | | | |
 | | | | | |

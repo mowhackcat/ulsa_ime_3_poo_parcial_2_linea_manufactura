@@ -38,12 +38,13 @@ void Torno::mantenimiento(){
 }
 
 void Torno::procesarPieza(){
+if(this-> Torno::puedeProcesar()){
 if(this-> Torno::fallaDeTorno()){
 this->estadoFalla = true;
 this->apagar();
 this->registrarMantenimiento();
 this->mantenimiento();
-}if(this-> Torno::puedeProcesar()){
+}
     this-> Torno::registrarPiezaTorno();
     this-> Torno::agregarTiempoTorno(this-> Torno::getSegundos());
 }

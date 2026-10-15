@@ -17,7 +17,7 @@ int main() {
 
 Torno torno1(1, "TornoCnC");
 
-Planta planta1(80);
+Planta planta1(20);
 
 planta1.agregarMaquina(&torno1);
 torno1.encender();
