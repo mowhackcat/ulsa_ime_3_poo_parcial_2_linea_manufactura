@@ -20,7 +20,7 @@ Torno torno1(1, "TornoCnC");
 Planta planta1(20);
 
 planta1.agregarMaquina(&torno1);
-torno1.encender();
+
 for(int x =0; x < planta1.getRepeticionesGlobales();x++){
 torno1.procesarPieza();
 }

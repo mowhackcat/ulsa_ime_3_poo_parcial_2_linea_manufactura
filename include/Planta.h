@@ -20,6 +20,10 @@ bool agregarMaquina(Maquina* maquina);//funcion para agregar las maquinas a un v
 
 int cantidadMaquinas();
 
+void encenderMaquinas();
+
+void apagarMaquina();
+
 void mostrar();
 
 int getRepeticionesGlobales() const;
