@@ -15,7 +15,6 @@ void Maquina::agregarTiempo(int segundos){
 }
 
 void Maquina::encender(){
-   std::cout << "Se encendio" << this->nombre << " \n";
    this->encendida = true;
 } 
 
@@ -38,10 +37,7 @@ bool Maquina::estaEnFalla() const{
 bool Maquina::puedeProcesar() const {
    if(this->estaEncendida() == true && estaEnFalla() == false){
       return true;
-   }else {
-      std::cout << "ocurrio algo y no se puede inicial" << this->nombre << "\n";
-   return false;
-   }
+   }else return false;
 }
 
 void Maquina::reportarFalla(){
@@ -75,8 +71,7 @@ return this->paros;
 }
 
 void Maquina::mostrarEstado () const{
-std::cout << getNombre() << getId()  << ".........." << 
-getPiezasProcesadas() << "piezas " << getTiempoTrabajado() << "segundos "
-<< getParos() << "paros.\n";
-      std::cout << "Se apago" << this->nombre << " \n";
+   std::cout << getNombre() << getId()  << ".........." << 
+   getPiezasProcesadas() << "piezas " << getTiempoTrabajado() << "segundos "
+   << getParos() << "paros.\n";
 }
