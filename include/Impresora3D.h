@@ -4,17 +4,17 @@
 #include "Extrusor.h"
 
 class Impresora3D : public Maquina {
-private: 
+private:
     int tiempoPorPieza;
     int temperaturaCelsius;
     Extrusor extrusor;
 
 public:
-Impresora3D(std::string id, std::string nombre, int tiempo, int limiteExtrusor);
+    Impresora3D(int id, const std::string& nombre, int limiteExtrusor);
 
-bool procesarPieza();
-void realizarMantenimiento();
-void mostrarEstado();
-void calibrarTemperatura(int temp);
+    bool procesarPieza();
+    void realizarMantenimiento();
+    void mostrarEstado() const;
+    void calibrarTemperatura(int temp);
 };
 

@@ -3,14 +3,13 @@
 
 class Extrusor {
 private:
-    int horasUsoFilamento;
-    int limiteHoras;
+    int usoActual;
+    int limiteUso;
 
 public:
     Extrusor (int limite);
 
-    void acumularUso(int horas);
-    void destaparBoquilla();
-    bool estaObstruido();
-    int obtenerHorasUso();
+    void desgastar();
+    void restaurar();
+    bool estaAgotado() const;
 };
