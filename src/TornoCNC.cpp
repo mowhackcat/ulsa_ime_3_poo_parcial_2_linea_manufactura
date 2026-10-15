@@ -43,7 +43,8 @@ this->estadoFalla = true;
 this->apagar();
 this->registrarMantenimiento();
 this->mantenimiento();
-}this-> Torno::puedeProcesar();
+}if(this-> Torno::puedeProcesar()){
     this-> Torno::registrarPiezaTorno();
     this-> Torno::agregarTiempoTorno(this-> Torno::getSegundos());
+}
 }

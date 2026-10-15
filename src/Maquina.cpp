@@ -38,7 +38,10 @@ bool Maquina::estaEnFalla() const{
 bool Maquina::puedeProcesar() const {
    if(this->estaEncendida() == true && estaEnFalla() == false){
       return true;
-   }else return false;
+   }else {
+      std::cout << "ocurrio algo y no se puede inicial" << this->nombre << "\n";
+   return false;
+   }
 }
 
 void Maquina::reportarFalla(){
