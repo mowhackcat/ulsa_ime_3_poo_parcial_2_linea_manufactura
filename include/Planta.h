@@ -22,7 +22,7 @@ int cantidadMaquinas();
 
 void encenderMaquinas();
 
-void apagarMaquina();
+void apagarMaquinas();
 
 void mostrar();
 

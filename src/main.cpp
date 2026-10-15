@@ -20,13 +20,14 @@ Torno torno1(1, "TornoCnC");
 Planta planta1(20);
 
 planta1.agregarMaquina(&torno1);
-
+planta1.encenderMaquinas();
 for(int x =0; x < planta1.getRepeticionesGlobales();x++){
 torno1.procesarPieza();
 }
 
 torno1.mostrarEstado();
-torno1.apagar();
+planta1.apagarMaquinas();
+
 
     // 2. Intentar procesar una pieza con las máquinas apagadas,
     //    para mostrar el rechazo.

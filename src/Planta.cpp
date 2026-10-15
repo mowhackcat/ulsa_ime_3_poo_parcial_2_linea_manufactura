@@ -9,13 +9,13 @@ bool Planta::agregarMaquina(Maquina* maquina){
 }
 
 void Planta::encenderMaquinas(){
-   for(size_t x=0; x <= maquina.size(); x++){
+   for(size_t x=0; x < maquina.size(); x++){
         this->maquina[x]->encender();
     } 
 }
 
-void Planta::apagarMaquina(){
-    for(size_t x=0; x <= maquina.size(); x++){
+void Planta::apagarMaquinas(){
+    for(size_t x=0; x < maquina.size(); x++){
         this->maquina[x]->apagar();
     }
 }
@@ -25,7 +25,7 @@ int Planta::cantidadMaquinas(){ //devuelve la cantidad de maquinas almacenadas e
 }
 
 void Planta::mostrar(){ //funcion para mostrar el estado de cada una de las maquinas en el vector
-    for(size_t x=0; x <= maquina.size(); x++){
+    for(size_t x=0; x < maquina.size(); x++){
         this->maquina[x]->mostrarEstado();
     }
 }
