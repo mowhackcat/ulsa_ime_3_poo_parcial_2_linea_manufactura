@@ -12,6 +12,9 @@
 #include "Planta.h"
 #include "TornoCNC.h"
 #include "Impresora3D.h"
+//include
+//include
+//include
 
 int main() {
     // 1. Crear las máquinas y registrarlas en la planta.
@@ -23,12 +26,18 @@ Planta planta1(20);
 
 planta1.agregarMaquina(&torno1);
 planta1.agregarMaquina(&impresora3d1);
+//planta.1
+//planta.1
+//planta.1
 planta1.encenderMaquinas();
 
 for(int x =0; x < planta1.getRepeticionesGlobales();x++)
 {
 torno1.procesarPieza();
 impresora3d1.procesarPieza();
+//x.procesarPieza();
+//y.procesarPieza();
+//z.procesarPieza();
 }
 
 planta1.mostrar();

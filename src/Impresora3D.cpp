@@ -12,16 +12,12 @@ bool Impresora3D::procesarPieza()
 {
     if (!puedeProcesar()) 
     {
-        std::cout << "[" << getNombre()
-                  << "] Operacion rechazada: Maquina apagada o en falla.\n";
         return false;
     }
 
     if (extrusor.estaAgotado()) 
     {
         reportarFalla();
-        std::cout << "[" << getNombre()
-                  << "] FALLA DETECTADA: Extrusor agotado.\n";
         realizarMantenimiento();
     }
 
@@ -29,13 +25,9 @@ bool Impresora3D::procesarPieza()
     agregarTiempo(tiempoPorPieza);
     extrusor.desgastar();
 
-    std::cout << "[" << getNombre() << "] Pieza procesada exitosamente.\n";
-
     if (extrusor.estaAgotado()) 
     {
         reportarFalla();
-        std::cout << "[" << getNombre()
-                  << "] FALLA DETECTADA: Extrusor agotado; se requiere mantenimiento.\n";
         realizarMantenimiento();
     }
 
@@ -46,15 +38,11 @@ void Impresora3D::realizarMantenimiento()
 {
     if (!estaEnFalla()) 
     {
-        std::cout << "[" << getNombre()
-                  << "] La impresora no presenta fallas.\n";
         return;
     }
 
     extrusor.restaurar();
     registrarMantenimiento();
-    std::cout << "[" << getNombre()
-              << "] Mantenimiento completado: Extrusor restaurado.\n";
 }
 
 void Impresora3D::mostrarEstado() const 
