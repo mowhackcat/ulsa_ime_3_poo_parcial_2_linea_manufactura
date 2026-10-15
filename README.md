@@ -53,12 +53,11 @@ Lote de 20 piezas. Una fila por máquina.
 | | | | | |
 
 **Reporte esperado (piezas terminadas, tiempo total y paros):**
+TornoCnC1..........20piezas 600segundos 2paros.
 
-[Inserta aquí tu respuesta]
 
 **¿Coincide con lo que imprime el programa? Si no coincidió al primer intento, ¿qué encontraron?**
-
-[Inserta aquí tu respuesta]
+TornoCNC si coincide
 
 ## 6. Diagrama general
 
@@ -80,4 +79,4 @@ Diagrama de clases de la solución completa, hecho en draw.io. Guarden la imagen
 
 Si el equipo modificó la interfaz de la clase base, expliquen qué cambió y por qué. Si no hubo cambios, escriban "Sin cambios".
 
-[Inserta aquí tu respuesta]
+no se realizo ninguno
