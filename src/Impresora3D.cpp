@@ -22,7 +22,7 @@ bool Impresora3D::procesarPieza()
         reportarFalla();
         std::cout << "[" << getNombre()
                   << "] FALLA DETECTADA: Extrusor agotado.\n";
-        return false;
+        realizarMantenimiento();
     }
 
     registrarPieza();
@@ -36,6 +36,7 @@ bool Impresora3D::procesarPieza()
         reportarFalla();
         std::cout << "[" << getNombre()
                   << "] FALLA DETECTADA: Extrusor agotado; se requiere mantenimiento.\n";
+        realizarMantenimiento();
     }
 
     return true;

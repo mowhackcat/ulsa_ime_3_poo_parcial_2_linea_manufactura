@@ -24,7 +24,9 @@ Planta planta1(20);
 planta1.agregarMaquina(&torno1);
 planta1.agregarMaquina(&impresora3d1);
 planta1.encenderMaquinas();
-for(int x =0; x < planta1.getRepeticionesGlobales();x++){
+
+for(int x =0; x < planta1.getRepeticionesGlobales();x++)
+{
 torno1.procesarPieza();
 impresora3d1.procesarPieza();
 }
