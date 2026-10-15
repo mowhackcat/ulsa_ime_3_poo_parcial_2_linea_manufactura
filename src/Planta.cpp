@@ -30,6 +30,8 @@ void Planta::mostrar(){ //funcion para mostrar el estado de cada una de las maqu
     }
 }
 
+
+
 int Planta::getRepeticionesGlobales() const{
     return this->repeticionesGlobales;
 }
