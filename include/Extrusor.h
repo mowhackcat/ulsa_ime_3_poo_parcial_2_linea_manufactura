@@ -12,4 +12,6 @@ public:
     void desgastar();
     void restaurar();
     bool estaAgotado() const;
+    int getUsoActual() const;
+    int getLimiteUso() const;
 };

@@ -8,15 +8,29 @@ bool Planta::agregarMaquina(Maquina* maquina){
     return true;
 }
 
+void Planta::encenderMaquinas(){
+   for(size_t x=0; x < maquina.size(); x++){
+        this->maquina[x]->encender();
+    } 
+}
+
+void Planta::apagarMaquinas(){
+    for(size_t x=0; x < maquina.size(); x++){
+        this->maquina[x]->apagar();
+    }
+}
+
 int Planta::cantidadMaquinas(){ //devuelve la cantidad de maquinas almacenadas en el vector
     return this->maquina.size();
 }
 
 void Planta::mostrar(){ //funcion para mostrar el estado de cada una de las maquinas en el vector
-    for(size_t x=0; x <= maquina.size(); x++){
+    for(size_t x=0; x < maquina.size(); x++){
         this->maquina[x]->mostrarEstado();
     }
 }
+
+
 
 int Planta::getRepeticionesGlobales() const{
     return this->repeticionesGlobales;

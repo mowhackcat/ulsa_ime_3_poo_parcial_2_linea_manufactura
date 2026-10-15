@@ -4,13 +4,13 @@
 
 **Elaborada por:** Daniel Gerardo Guerra Rodriguez
 **Matrícula:** 25238
-**Bloque:** [Inserta aquí tu número de bloque]
+**Bloque:** idk
 
 ## 1. Propósito
 
 **¿Qué máquina representa tu clase y qué operación hace sobre la pieza?**
 
-[Inserta aquí tu respuesta]
+es una maquina de torno de control numerico, procesa la pieza, lleva un contador de dichas piezas realizadas y el tiempo acumulado y controla las fallas del elemento que se desgasta
 
 **¿Cuál es su componente y por qué no existe sin la máquina?**
 
@@ -37,7 +37,7 @@ void registrarPiezaTorno();
 void agregarTiempoTorno(int segundos);
  llama a la funcion base Maquina::agregarTiempo(segundos);
 int getSegundos() const;
- llma de la funcion base a getsegundos()
+ llama de la funcion base a getsegundos()
 
 **¿Cómo modelaste el desgaste del componente y por qué así?**
 
@@ -51,8 +51,7 @@ Utiliza las funciones apagar(); registrarMantenimiento(); aquina::agregarTiempo(
 
 Diagrama de tu clase y su componente, hecho en draw.io. Debe mostrar la relación de herencia con `Maquina` y la de composición con tu componente. Guarda la imagen en `docs/` y enlázala aquí.
 
-[Inserta aquí tu diagrama]
-
+<img src="diagramaTornoCNC.drawio.png">
 ## 4. Bitácora
 
 **Dudas que tuviste y cómo las resolviste:**

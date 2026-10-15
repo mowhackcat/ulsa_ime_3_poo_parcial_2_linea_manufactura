@@ -26,3 +26,13 @@ bool Extrusor::estaAgotado() const
 {
     return usoActual >= limiteUso;
 }
+
+int Extrusor::getUsoActual() const
+{
+    return usoActual;
+}
+
+int Extrusor::getLimiteUso() const
+{
+    return limiteUso;
+}
