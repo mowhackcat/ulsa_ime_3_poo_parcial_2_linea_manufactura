@@ -3,8 +3,7 @@
 #include <string>
 #include <iostream>
 
-Torno::Torno(int id, const std::string& nombre, bool estadoFalla ,int const limiteHusillo, bool estadoHusilloFalla,  int contador): Maquina(id, nombre), 
-estadoFalla(estadoFalla), husillo(limiteHusillo, estadoHusilloFalla, contador)
+Torno::Torno(int id, const std::string& nombre): Maquina(id, nombre), husillo(8, false, 0)
 {
 this->segundos = 20;
 
@@ -27,6 +26,7 @@ void Torno::registrarPiezaTorno(){
 }
 
 void Torno::reportarFallaTorno(){
+    this->estadoFalla = true;
     Maquina::reportarFalla();
 }
 
@@ -37,14 +37,13 @@ void Torno::mantenimiento(){
     }
 }
 
-void Torno::procesarPieza(Torno& torno){
- torno.encender();
- torno.estaEnFalla();
-if(torno.fallaDeTorno()){
-    torno.reportarFallaTorno();
-    torno.mantenimiento();
-}else if(torno.puedeProcesar()){
-    torno.registrarPiezaTorno();
-    torno.agregarTiempoTorno(torno.getSegundos());
+void Torno::procesarPieza(){
+ this-> Torno::encender();
+if(this-> Torno::fallaDeTorno()){
+    this-> Torno::reportarFallaTorno();
+    this-> Torno::mantenimiento();
+}else if(this-> Torno::puedeProcesar()){
+    this-> Torno::registrarPiezaTorno();
+    this-> Torno::agregarTiempoTorno(this-> Torno::getSegundos());
 }
 }

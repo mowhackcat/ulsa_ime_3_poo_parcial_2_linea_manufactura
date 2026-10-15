@@ -3,7 +3,8 @@
 #include <string>
 #include <iostream>
 
-Maquina::Maquina(int id, const std::string& nombre):id(id), nombre(nombre){}
+Maquina::Maquina(int id, const std::string& nombre):id(id), nombre(nombre), encendida(false),
+enFalla(false), piezasProcesadas(0),tiempoTrabajado(0), paros(0){}
 
 void Maquina::registrarPieza(){
 this->piezasProcesadas++;
@@ -41,8 +42,8 @@ bool Maquina::puedeProcesar() const {
 
 void Maquina::reportarFalla(){
    if(estaEnFalla() == true){
-   apagar();
    registrarMantenimiento();
+   apagar();
    }
 }
 

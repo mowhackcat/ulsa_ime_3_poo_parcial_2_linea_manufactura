@@ -1,5 +1,5 @@
-#ifndef TornoCNC_H
-#define TornoCNC_H
+#ifndef PLANTA_H
+#define PLANTA_H
 
 #include <string>
 #include <vector>
@@ -21,6 +21,8 @@ bool agregarMaquina(Maquina* maquina);//funcion para agregar las maquinas a un v
 int cantidadMaquinas();
 
 void mostrar();
+
+int getRepeticionesGlobales() const;
 };
 
 #endif

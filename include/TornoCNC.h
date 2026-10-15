@@ -1,5 +1,5 @@
-#ifndef TornoCNC_H
-#define TornoCNC_H
+#ifndef TORNO_CNC_H
+#define TORNO_CNC_H
 
 #include <string>
 #include "Maquina.h"
@@ -13,10 +13,10 @@ bool estadoFalla;
 Husillo husillo;
 
 public:
-Torno(int id, const std::string& nombre, bool estadoFalla ,int const limiteHusillo, bool estadoHusilloFalla,  int contador);
+Torno(int id, const std::string& nombre);
 bool fallaDeTorno();
 void mantenimiento();
-void procesarPieza(Torno& torno);
+void procesarPieza();
 void registrarPiezaTorno();
 void reportarFallaTorno();
 void agregarTiempoTorno(int segundos);

@@ -9,9 +9,23 @@
 //   ./planta
 
 #include <iostream>
+#include "Planta.h"
+#include "TornoCNC.h"
 
 int main() {
     // 1. Crear las máquinas y registrarlas en la planta.
+
+Torno torno1(1, "TornoCnC");
+
+Planta planta1(20);
+
+planta1.agregarMaquina(&torno1);
+
+for(int x =0; x < planta1.getRepeticionesGlobales();x++){
+torno1.procesarPieza();
+}
+
+torno1.mostrarEstado();
 
     // 2. Intentar procesar una pieza con las máquinas apagadas,
     //    para mostrar el rechazo.
