@@ -10,7 +10,7 @@
 
 **¿Qué máquina representa tu clase y qué operación hace sobre la pieza?**
 
-[Inserta aquí tu respuesta]
+es una maquina de torno de control numerico, procesa la pieza, lleva un contador de dichas piezas realizadas y el tiempo acumulado y controla las fallas del elemento que se desgasta
 
 **¿Cuál es su componente y por qué no existe sin la máquina?**
 
