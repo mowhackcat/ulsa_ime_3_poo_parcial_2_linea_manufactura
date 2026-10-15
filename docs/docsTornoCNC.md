@@ -14,29 +14,38 @@
 
 **¿Cuál es su componente y por qué no existe sin la máquina?**
 
-Husillo,
+Husillo, sin ella no podria hacer el trabajo
 
 ## 2. Decisiones de diseño
 
 **Atributos propios de tu clase y validación de cada uno:**
 
-[Inserta aquí tu respuesta]
+int segundos;
+bool estadoFalla;
+Husillo husillo;
 
 **Métodos propios (los que la clase base no tiene):**
 
-[Inserta aquí tu respuesta]
+void mantenimiento();
+void procesarPieza();
+void reportarFallaTorno();
 
 **Método de la base que redefines, y cómo reutilizas la versión de la base:**
 
-[Inserta aquí tu respuesta]
+void registrarPiezaTorno();
+ llama a la funcion base Maquina::registrarPieza();
+void agregarTiempoTorno(int segundos);
+ llama a la funcion base Maquina::agregarTiempo(segundos);
+int getSegundos() const;
+ llma de la funcion base a getsegundos()
 
 **¿Cómo modelaste el desgaste del componente y por qué así?**
 
-[Inserta aquí tu respuesta]
+utilizando un contador, que aumentara hasta llegar a cierta condicion que marcara el error
 
 **¿Qué usa tu clase de `Maquina` y qué agrega?**
 
-[Inserta aquí tu respuesta]
+Utiliza las funciones apagar(); registrarMantenimiento(); aquina::agregarTiempo(segundos)
 
 ## 3. Diagrama
 
