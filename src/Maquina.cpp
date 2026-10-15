@@ -15,6 +15,7 @@ void Maquina::agregarTiempo(int segundos){
 }
 
 void Maquina::encender(){
+   std::cout << "Se encendio" << this->nombre << " \n";
    this->encendida = true;
 } 
 
@@ -74,7 +75,8 @@ return this->paros;
 }
 
 void Maquina::mostrarEstado () const{
-   std::cout << getNombre() << getId()  << ".........." << 
-   getPiezasProcesadas() << "piezas " << getTiempoTrabajado() << "segundos "
-   << getParos() << "paros.\n";
+std::cout << getNombre() << getId()  << ".........." << 
+getPiezasProcesadas() << "piezas " << getTiempoTrabajado() << "segundos "
+<< getParos() << "paros.\n";
+      std::cout << "Se apago" << this->nombre << " \n";
 }

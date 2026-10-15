@@ -5,7 +5,7 @@
 
 Torno::Torno(int id, const std::string& nombre): Maquina(id, nombre), husillo(8, false, 0)
 {
-this->segundos = 20;
+this->segundos = 30;
 
 };
 
@@ -38,15 +38,12 @@ void Torno::mantenimiento(){
 }
 
 void Torno::procesarPieza(){
- this-> Torno::encender();
 if(this-> Torno::fallaDeTorno()){
 this->estadoFalla = true;
 this->apagar();
 this->registrarMantenimiento();
-this->husillo.mantenimiento();
-this->estadoFalla = false;
-}else if(this-> Torno::puedeProcesar()){
+this->mantenimiento();
+}this-> Torno::puedeProcesar();
     this-> Torno::registrarPiezaTorno();
     this-> Torno::agregarTiempoTorno(this-> Torno::getSegundos());
-}
 }
