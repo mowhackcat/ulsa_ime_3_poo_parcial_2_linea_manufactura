@@ -72,8 +72,13 @@ Diagrama de clases de la solución completa, hecho en draw.io. Guarden la imagen
 
 | Integrante | Documentación de su clase | Propuesta de mejora |
 | --- | --- | --- |
+<<<<<<< HEAD
 | | `docs/<Clase>.md` | `docs/mejoras/<matrícula>/mejora.md` |
 | | `docs/TornoCNC.md| `docs/mejoras/25238/mantenimiento.md`|
+=======
+| Daniel Alejandro Hernandez Sanchez | Pendiente de agregar (`docs/Prensa.md`) | Pendiente de agregar (`docs/mejoras/25029/mejora.md`) |
+| Jesús René Pamanes Ferreira | [Impresora3D.md](docs/mejoras/22038/Impresora3D.md) | [mejora.md](docs/mejoras/22038/mejora.md) |
+>>>>>>> da04f996ed8dee803e1403d91d171ed9c2ba3c16
 | | | |
 | | | |
 | | | |
