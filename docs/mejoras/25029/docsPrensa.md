@@ -48,7 +48,7 @@ Agrega: La operación específica de doblado (doblarPieza()), el mantenimiento d
 
 Diagrama de tu clase y su componente, hecho en draw.io. Debe mostrar la relación de herencia con `Maquina` y la de composición con tu componente. Guarda la imagen en `docs/` y enlázala aquí.
 
-![Diagrama de la clase Prensa](Prensa_UML.png)
+https://drive.google.com/file/d/1OhBFn_Ac7pTGeXph8IEZ6SHfegyPflS_/view?usp=sharing
 
 ## 4. Bitácora
 
