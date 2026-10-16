@@ -9,9 +9,43 @@
 //   ./planta
 
 #include <iostream>
+#include "Planta.h"
+#include "TornoCNC.h"
+//include
+//include
+//include
+#include "Impresora3D.h"
 
 int main() {
     // 1. Crear las máquinas y registrarlas en la planta.
+
+Torno torno1(1, "TornoCnC");
+//clase
+//
+//
+Impresora3D impresora3d1(5,"Bambu Labs", 15);
+
+Planta planta1(20);
+
+planta1.agregarMaquina(&torno1);
+planta1.agregarMaquina(&impresora3d1);
+//planta.1
+//planta.1
+//planta.1
+planta1.encenderMaquinas();
+
+for(int x =0; x < planta1.getRepeticionesGlobales();x++)
+{
+torno1.procesarPieza();
+impresora3d1.procesarPieza();
+//x.procesarPieza();
+//y.procesarPieza();
+//z.procesarPieza();
+}
+
+planta1.mostrar();
+planta1.apagarMaquinas();
+
 
     // 2. Intentar procesar una pieza con las máquinas apagadas,
     //    para mostrar el rechazo.

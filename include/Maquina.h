@@ -14,9 +14,16 @@ private:
     int paros;
 
 protected:
+    // Suma una pieza procesada.
     void registrarPieza();
+
+    // Acumula tiempo; no acepta valores negativos.
     void agregarTiempo(int segundos);
+
+    // Activa la falla.
     void reportarFalla();
+
+    // Quita la falla y suma un paro.
     void registrarMantenimiento();
 
 public:

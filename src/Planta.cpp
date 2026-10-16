@@ -1,34 +1,59 @@
 #include "Planta.h"
 #include <iostream>
 
-Planta::Planta()
-    : totalPiezasTerminadas(0), tiempoTotalTurno(0) {
+Planta::Planta(int repeticionesGlobales)
+    : repeticionesGlobales(
+          repeticionesGlobales > 0 ? repeticionesGlobales : 20),
+      totalPiezasTerminadas(0) {
 }
 
-void Planta::agregarMaquina(Maquina* maquina) {
+bool Planta::agregarMaquina(Maquina* maquina) {
     if (maquina == nullptr) {
-        return;
+        return false;
     }
 
     for (Maquina* registrada : maquinas) {
         if (registrada == maquina) {
-            return;
+            return false;
         }
     }
 
     maquinas.push_back(maquina);
+    return true;
 }
 
-void Planta::encenderLinea() {
+int Planta::cantidadMaquinas() {
+    return static_cast<int>(maquinas.size());
+}
+
+int Planta::getRepeticionesGlobales() const {
+    return repeticionesGlobales;
+}
+
+void Planta::encenderMaquinas() {
     for (Maquina* maquina : maquinas) {
         maquina->encender();
     }
 }
 
-void Planta::apagarLinea() {
+void Planta::apagarMaquinas() {
     for (Maquina* maquina : maquinas) {
         maquina->apagar();
     }
+}
+
+void Planta::mostrar() {
+    for (Maquina* maquina : maquinas) {
+        maquina->mostrarEstado();
+    }
+}
+
+void Planta::encenderLinea() {
+    encenderMaquinas();
+}
+
+void Planta::apagarLinea() {
+    apagarMaquinas();
 }
 
 void Planta::procesarLote(int numPiezas) {
@@ -37,7 +62,6 @@ void Planta::procesarLote(int numPiezas) {
         return;
     }
 
-    // Rechaza el lote antes de procesar si alguna esta apagada.
     for (Maquina* maquina : maquinas) {
         if (!maquina->estaEncendida()) {
             std::cout << "Lote rechazado: "
@@ -48,41 +72,27 @@ void Planta::procesarLote(int numPiezas) {
     }
 
     for (int pieza = 0; pieza < numPiezas; pieza++) {
-        std::cout << "\n--- Pieza "
-                  << totalPiezasTerminadas + 1 << " ---\n";
-
         for (Maquina* maquina : maquinas) {
             if (maquina->estaEnFalla()) {
                 maquina->realizarMantenimiento();
                 maquina->encender();
             }
 
-            int tiempoAntes = maquina->getTiempoTrabajado();
             bool procesada = maquina->procesarPieza();
 
-            tiempoTotalTurno +=
-                maquina->getTiempoTrabajado() - tiempoAntes;
-
-            // Si fallo antes de terminar, reintenta una sola vez.
             if (!procesada && maquina->estaEnFalla()) {
                 maquina->realizarMantenimiento();
                 maquina->encender();
-
-                tiempoAntes = maquina->getTiempoTrabajado();
                 procesada = maquina->procesarPieza();
-
-                tiempoTotalTurno +=
-                    maquina->getTiempoTrabajado() - tiempoAntes;
             }
 
             if (!procesada) {
                 std::cout << "Lote detenido en "
                           << maquina->getNombre()
-                          << ". La pieza no se termino.\n";
+                          << ". Pieza incompleta.\n";
                 return;
             }
 
-            // Puede terminar la pieza y alcanzar su limite justo despues.
             if (maquina->estaEnFalla()) {
                 maquina->realizarMantenimiento();
                 maquina->encender();
@@ -94,15 +104,17 @@ void Planta::procesarLote(int numPiezas) {
 }
 
 void Planta::generarReporteTurno() const {
+    int tiempoTotal = 0;
     int totalParos = 0;
 
     for (const Maquina* maquina : maquinas) {
+        tiempoTotal += maquina->getTiempoTrabajado();
         totalParos += maquina->getParos();
     }
 
     std::cout << "\n=== Reporte del turno ==="
               << "\nPiezas terminadas: " << totalPiezasTerminadas
-              << "\nTiempo total: " << tiempoTotalTurno << " s"
+              << "\nTiempo total: " << tiempoTotal << " s"
               << "\nParos por mantenimiento: " << totalParos
               << "\n";
 

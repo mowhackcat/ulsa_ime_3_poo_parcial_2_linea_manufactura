@@ -1,21 +1,25 @@
-#ifndef TornoCNC_H
-#define TornoCNC_H
+#ifndef TORNO_CNC_H
+#define TORNO_CNC_H
 
 #include <string>
 #include "Maquina.h"
+#include "Husillo.h"
+
 
 class Torno : public Maquina {
-private: 
+protected: 
 int segundos;
-int limiteHusillo;
+bool estadoFalla;
+Husillo husillo;
 
 public:
-
-Torno(int id, const std::string& nombre, int const limiteHusillo, int const segundos);
-
-bool LimiteDeProduccion();
-
-void trabajo(Torno&);
-
+Torno(int id, const std::string& nombre);
+bool fallaDeTorno();
+void mantenimiento();
+void procesarPieza();
+void registrarPiezaTorno();
+void reportarFallaTorno();
+void agregarTiempoTorno(int segundos);
+int getSegundos() const;
 };
 #endif

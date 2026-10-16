@@ -3,25 +3,49 @@
 #include <string>
 #include <iostream>
 
-Torno::Torno(int id, const std::string& nombre, int const limiteHusillo, int const segundos):Maquina(id, nombre), 
-segundos(segundos), limiteHusillo(limiteHusillo)
+Torno::Torno(int id, const std::string& nombre): Maquina(id, nombre), husillo(8, false, 0)
 {
-this->segundos = 20;
-this->limiteHusillo = 8;
+this->segundos = 30;
+
 };
 
-bool Torno::LimiteDeProduccion(){
-
-
+int Torno::getSegundos() const{
+    return segundos;
 }
 
-void trabajo(){
-while (true)
-{
- void encender();
- bool estaEnFalla();
- bool puedeProcesar();
- 
+bool Torno::fallaDeTorno(){
+    return husillo.fallaHusillo();
+}
 
+void Torno::agregarTiempoTorno(int segundos){
+    Maquina::agregarTiempo(segundos);
+}
+
+void Torno::registrarPiezaTorno(){
+    Maquina::registrarPieza();
+}
+
+void Torno::reportarFallaTorno(){
+    this->estadoFalla = true;
+    Maquina::reportarFalla();
+}
+
+void Torno::mantenimiento(){
+    if(estadoFalla == true){
+    husillo.mantenimiento();
+    this->estadoFalla = false;
+    }
+}
+
+void Torno::procesarPieza(){
+if(this-> Torno::puedeProcesar()){
+if(this-> Torno::fallaDeTorno()){
+this->estadoFalla = true;
+this->apagar();
+this->registrarMantenimiento();
+this->mantenimiento();
+}
+    this-> Torno::registrarPiezaTorno();
+    this-> Torno::agregarTiempoTorno(this-> Torno::getSegundos());
 }
 }

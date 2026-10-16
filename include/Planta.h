@@ -6,16 +6,21 @@
 
 class Planta {
 private:
-    // Guarda referencias a maquinas creadas fuera de la planta.
     std::vector<Maquina*> maquinas;
+    int repeticionesGlobales;
     int totalPiezasTerminadas;
-    int tiempoTotalTurno;
 
 public:
-    Planta();
-    ~Planta() = default;
+    Planta(int repeticionesGlobales = 20);
 
-    void agregarMaquina(Maquina* maquina);
+    bool agregarMaquina(Maquina* maquina);
+    int cantidadMaquinas();
+
+    void encenderMaquinas();
+    void apagarMaquinas();
+    void mostrar();
+    int getRepeticionesGlobales() const;
+
     void encenderLinea();
     void apagarLinea();
     void procesarLote(int numPiezas);
