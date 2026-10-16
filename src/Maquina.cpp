@@ -1,73 +1,81 @@
 #include "Maquina.h"
-
-#include <string>
 #include <iostream>
 
-Maquina::Maquina(int id, const std::string& nombre):nombre(nombre), id(id){}
-
-void Maquina::encender(){
-   this->encendida = true;
-   std::cout << "se encendio" << this->nombre ;
-} 
-
-void Maquina::apagar(){
-   this->encendida = false;
-   std::cout << "se apago" << this->nombre ;
+Maquina::Maquina(int id, const std::string& nombre)
+    : id(id), nombre(nombre), encendida(false), enFalla(false),
+      piezasProcesadas(0), tiempoTrabajado(0), paros(0) {
 }
 
-bool Maquina::estaEncendida() const{
-   if(this->encendida==true){
-      return true;
-   }else return false;
-};
+void Maquina::encender() {
+    encendida = true;
+    std::cout << "Se encendio " << nombre << "\n";
+}
 
-bool Maquina::estaEnFalla() const{  
-   if(this->enFalla==true){
-       return true;
-   }else return false;
-};
+void Maquina::apagar() {
+    encendida = false;
+    std::cout << "Se apago " << nombre << "\n";
+}
+
+bool Maquina::estaEncendida() const {
+    return encendida;
+}
+
+bool Maquina::estaEnFalla() const {
+    return enFalla;
+}
 
 bool Maquina::puedeProcesar() const {
-   if(this->estaEncendida() == true && estaEnFalla() == false){
-      std::cout << "listo para trabajar\n";
-      return true;
-   }else return false;
+    return encendida && !enFalla;
 }
 
-void Maquina::reportarFalla(){
-   estaEnFalla() == true;
-   std::cout << "falla detectada, inicializando mantenimiento\n";
-   apagar();
-   std::cout << "...Realizando mantenimiento\n";
+void Maquina::registrarPieza() {
+    piezasProcesadas++;
 }
 
-void Maquina::registrarMantenimiento(){
-   std::cout << "regristrando mantenimiento...\n";
-   paros ++;
-};
-
-int Maquina::getPiezasProcesadas() const{
-   return this->piezasProcesadas;
+void Maquina::agregarTiempo(int segundos) {
+    if (segundos >= 0) {
+        tiempoTrabajado += segundos;
+    }
 }
 
-int Maquina::getId() const{
-   return this->id;
-};
+void Maquina::reportarFalla() {
+    enFalla = true;
+    std::cout << "Falla detectada en " << nombre << "\n";
+    apagar();
+}
 
-std::string Maquina::getNombre() const{
-   return this->nombre;
-};
+void Maquina::registrarMantenimiento() {
+    enFalla = false;
+    paros++;
+    std::cout << "Mantenimiento registrado en " << nombre << "\n";
+}
+
+int Maquina::getId() const {
+    return id;
+}
+
+std::string Maquina::getNombre() const {
+    return nombre;
+}
+
+int Maquina::getPiezasProcesadas() const {
+    return piezasProcesadas;
+}
 
 int Maquina::getTiempoTrabajado() const {
-   return this->tiempoTrabajado;
+    return tiempoTrabajado;
 }
 
-int Maquina::getParos() const{
-return paros;
+int Maquina::getParos() const {
+    return paros;
 }
 
-void Maquina::mostrarEstado () const{
-   std::cout << getNombre() << getId()  << ".........." << 
-   getPiezasProcesadas() << "piezas " << getTiempoTrabajado() << "segundos "
-   << getParos() << "paros.\n";
+void Maquina::mostrarEstado() const {
+    std::cout << "\nMaquina: " << nombre
+              << "\nID: " << id
+              << "\nEncendida: " << (encendida ? "Si" : "No")
+              << "\nEn falla: " << (enFalla ? "Si" : "No")
+              << "\nPiezas procesadas: " << piezasProcesadas
+              << "\nTiempo trabajado: " << tiempoTrabajado << " segundos"
+              << "\nParos: " << paros << "\n";
 }
