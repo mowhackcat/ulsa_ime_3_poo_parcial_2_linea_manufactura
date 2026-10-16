@@ -72,8 +72,8 @@ Diagrama de clases de la solución completa, hecho en draw.io. Guarden la imagen
 
 | Integrante | Documentación de su clase | Propuesta de mejora |
 | --- | --- | --- |
-| | `docs/<Clase>.md` | `docs/mejoras/<matrícula>/mejora.md` |
-| | | |
+| Daniel Alejandro Hernandez Sanchez | Pendiente de agregar (`docs/Prensa.md`) | Pendiente de agregar (`docs/mejoras/25029/mejora.md`) |
+| Jesús René Pamanes Ferreira | [Impresora3D.md](docs/mejoras/22038/Impresora3D.md) | [mejora.md](docs/mejoras/22038/mejora.md) |
 | | | |
 | | | |
 | | | |
