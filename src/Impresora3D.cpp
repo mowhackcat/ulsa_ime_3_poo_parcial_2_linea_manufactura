@@ -15,12 +15,6 @@ bool Impresora3D::procesarPieza()
         return false;
     }
 
-    if (extrusor.estaAgotado()) 
-    {
-        reportarFalla();
-        realizarMantenimiento();
-    }
-
     registrarPieza();
     agregarTiempo(tiempoPorPieza);
     extrusor.desgastar();
