@@ -1,37 +1,124 @@
 #include "Planta.h"
 #include <iostream>
 
-Planta::Planta (int const repeticionesGlobales): repeticionesGlobales(repeticionesGlobales) {}
+Planta::Planta(int repeticionesGlobales)
+    : repeticionesGlobales(
+          repeticionesGlobales > 0 ? repeticionesGlobales : 20),
+      totalPiezasTerminadas(0) {
+}
 
-bool Planta::agregarMaquina(Maquina* maquina){
-    this->maquina.push_back(maquina);
+bool Planta::agregarMaquina(Maquina* maquina) {
+    if (maquina == nullptr) {
+        return false;
+    }
+
+    for (Maquina* registrada : maquinas) {
+        if (registrada == maquina) {
+            return false;
+        }
+    }
+
+    maquinas.push_back(maquina);
     return true;
 }
 
-void Planta::encenderMaquinas(){
-   for(size_t x=0; x < maquina.size(); x++){
-        this->maquina[x]->encender();
-    } 
+int Planta::cantidadMaquinas() {
+    return static_cast<int>(maquinas.size());
 }
 
-void Planta::apagarMaquinas(){
-    for(size_t x=0; x < maquina.size(); x++){
-        this->maquina[x]->apagar();
+int Planta::getRepeticionesGlobales() const {
+    return repeticionesGlobales;
+}
+
+void Planta::encenderMaquinas() {
+    for (Maquina* maquina : maquinas) {
+        maquina->encender();
     }
 }
 
-int Planta::cantidadMaquinas(){ //devuelve la cantidad de maquinas almacenadas en el vector
-    return this->maquina.size();
-}
-
-void Planta::mostrar(){ //funcion para mostrar el estado de cada una de las maquinas en el vector
-    for(size_t x=0; x < maquina.size(); x++){
-        this->maquina[x]->mostrarEstado();
+void Planta::apagarMaquinas() {
+    for (Maquina* maquina : maquinas) {
+        maquina->apagar();
     }
 }
 
+void Planta::mostrar() {
+    for (Maquina* maquina : maquinas) {
+        maquina->mostrarEstado();
+    }
+}
 
+void Planta::encenderLinea() {
+    encenderMaquinas();
+}
 
-int Planta::getRepeticionesGlobales() const{
-    return this->repeticionesGlobales;
+void Planta::apagarLinea() {
+    apagarMaquinas();
+}
+
+void Planta::procesarLote(int numPiezas) {
+    if (numPiezas <= 0 || maquinas.empty()) {
+        std::cout << "Lote invalido o planta sin maquinas.\n";
+        return;
+    }
+
+    for (Maquina* maquina : maquinas) {
+        if (!maquina->estaEncendida()) {
+            std::cout << "Lote rechazado: "
+                      << maquina->getNombre()
+                      << " esta apagada.\n";
+            return;
+        }
+    }
+
+    for (int pieza = 0; pieza < numPiezas; pieza++) {
+        for (Maquina* maquina : maquinas) {
+            if (maquina->estaEnFalla()) {
+                maquina->realizarMantenimiento();
+                maquina->encender();
+            }
+
+            bool procesada = maquina->procesarPieza();
+
+            if (!procesada && maquina->estaEnFalla()) {
+                maquina->realizarMantenimiento();
+                maquina->encender();
+                procesada = maquina->procesarPieza();
+            }
+
+            if (!procesada) {
+                std::cout << "Lote detenido en "
+                          << maquina->getNombre()
+                          << ". Pieza incompleta.\n";
+                return;
+            }
+
+            if (maquina->estaEnFalla()) {
+                maquina->realizarMantenimiento();
+                maquina->encender();
+            }
+        }
+
+        totalPiezasTerminadas++;
+    }
+}
+
+void Planta::generarReporteTurno() const {
+    int tiempoTotal = 0;
+    int totalParos = 0;
+
+    for (const Maquina* maquina : maquinas) {
+        tiempoTotal += maquina->getTiempoTrabajado();
+        totalParos += maquina->getParos();
+    }
+
+    std::cout << "\n=== Reporte del turno ==="
+              << "\nPiezas terminadas: " << totalPiezasTerminadas
+              << "\nTiempo total: " << tiempoTotal << " s"
+              << "\nParos por mantenimiento: " << totalParos
+              << "\n";
+
+    for (const Maquina* maquina : maquinas) {
+        maquina->mostrarEstado();
+    }
 }

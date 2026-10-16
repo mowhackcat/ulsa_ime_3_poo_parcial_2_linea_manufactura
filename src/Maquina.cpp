@@ -1,82 +1,81 @@
 #include "Maquina.h"
-
-#include <string>
 #include <iostream>
 
-Maquina::Maquina(int id, const std::string& nombre):id(id), nombre(nombre), encendida(false),
-enFalla(false), piezasProcesadas(0),tiempoTrabajado(0), paros(0){}
-
-void Maquina::registrarPieza(){
-this->piezasProcesadas++;
+Maquina::Maquina(int id, const std::string& nombre)
+    : id(id), nombre(nombre), encendida(false), enFalla(false),
+      piezasProcesadas(0), tiempoTrabajado(0), paros(0) {
 }
 
-void Maquina::agregarTiempo(int segundos){
-   this->tiempoTrabajado+= segundos;
+void Maquina::encender() {
+    encendida = true;
+    std::cout << "Se encendio " << nombre << "\n";
 }
 
-void Maquina::encender(){
-   std::cout << "Se encendio" << this->nombre << " \n";
-   this->encendida = true;
-} 
-
-void Maquina::apagar(){
-   this->encendida = false;
+void Maquina::apagar() {
+    encendida = false;
+    std::cout << "Se apago " << nombre << "\n";
 }
 
-bool Maquina::estaEncendida() const{
-   if(this->encendida==true){
-      return true;
-   }else return false;
-};
+bool Maquina::estaEncendida() const {
+    return encendida;
+}
 
-bool Maquina::estaEnFalla() const{  
-   if(this->enFalla==true){
-       return true;
-   }else return false;
-};
+bool Maquina::estaEnFalla() const {
+    return enFalla;
+}
 
 bool Maquina::puedeProcesar() const {
-   if(this->estaEncendida() == true && estaEnFalla() == false){
-      return true;
-   }else {
-      std::cout << "ocurrio algo y no se puede inicial" << this->nombre << "\n";
-   return false;
-   }
+    return encendida && !enFalla;
 }
 
-void Maquina::reportarFalla(){
-   this->enFalla = true;
+void Maquina::registrarPieza() {
+    piezasProcesadas++;
 }
 
-void Maquina::registrarMantenimiento(){
-   this->paros ++;
-   this->enFalla=false;
-   this->encendida=true;
-};
-
-int Maquina::getPiezasProcesadas() const{
-   return this->piezasProcesadas;
+void Maquina::agregarTiempo(int segundos) {
+    if (segundos >= 0) {
+        tiempoTrabajado += segundos;
+    }
 }
 
-int Maquina::getId() const{
-   return this->id;
-};
+void Maquina::reportarFalla() {
+    enFalla = true;
+    std::cout << "Falla detectada en " << nombre << "\n";
+    apagar();
+}
 
-std::string Maquina::getNombre() const{
-   return this->nombre;
-};
+void Maquina::registrarMantenimiento() {
+    enFalla = false;
+    paros++;
+    std::cout << "Mantenimiento registrado en " << nombre << "\n";
+}
+
+int Maquina::getId() const {
+    return id;
+}
+
+std::string Maquina::getNombre() const {
+    return nombre;
+}
+
+int Maquina::getPiezasProcesadas() const {
+    return piezasProcesadas;
+}
 
 int Maquina::getTiempoTrabajado() const {
-   return this->tiempoTrabajado;
+    return tiempoTrabajado;
 }
 
-int Maquina::getParos() const{
-return this->paros;
+int Maquina::getParos() const {
+    return paros;
 }
 
-void Maquina::mostrarEstado () const{
-std::cout << getNombre() << getId()  << ".........." << 
-getPiezasProcesadas() << "piezas " << getTiempoTrabajado() << "segundos "
-<< getParos() << "paros.\n";
-      std::cout << "Se apago" << this->nombre << " \n";
+void Maquina::mostrarEstado() const {
+    std::cout << "\nMaquina: " << nombre
+              << "\nID: " << id
+              << "\nEncendida: " << (encendida ? "Si" : "No")
+              << "\nEn falla: " << (enFalla ? "Si" : "No")
+              << "\nPiezas procesadas: " << piezasProcesadas
+              << "\nTiempo trabajado: " << tiempoTrabajado << " segundos"
+              << "\nParos: " << paros << "\n";
 }
