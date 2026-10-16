@@ -73,7 +73,7 @@ Diagrama de clases de la solución completa, hecho en draw.io. Guarden la imagen
 | Integrante | Documentación de su clase | Propuesta de mejora |
 | --- | --- | --- |
 | | `docs/<Clase>.md` | `docs/mejoras/<matrícula>/mejora.md` |
-| | | |
+| | `docs/TornoCNC.md| `docs/mejoras/25238/mantenimiento.md`|
 | | | |
 | | | |
 | | | |

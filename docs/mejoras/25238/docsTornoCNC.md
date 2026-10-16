@@ -56,8 +56,8 @@ Diagrama de tu clase y su componente, hecho en draw.io. Debe mostrar la relació
 
 **Dudas que tuviste y cómo las resolviste:**
 
-[Inserta aquí tu respuesta]
+como colocar el diagrama en uno de los docs de texto, pregunarle al maestro
 
 **Errores que encontraste y cómo los corregiste:**
 
-[Inserta aquí tu respuesta]
+pasar por mi refencia a la lcase en una funcion provocaba que realizara el ciclo un gran numero de veces, elimine esa parte y modifique la funcion
