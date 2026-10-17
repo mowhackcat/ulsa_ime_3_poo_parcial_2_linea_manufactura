@@ -1,4 +1,4 @@
-#include "TornoCNC.h"
+#include "../include/TornoCNC.h"
 
 #include <string>
 #include <iostream>
@@ -30,22 +30,23 @@ void Torno::reportarFallaTorno(){
     Maquina::reportarFalla();
 }
 
-void Torno::mantenimiento(){
+void Torno::realizarMantenimiento(){
     if(estadoFalla == true){
     husillo.mantenimiento();
     this->estadoFalla = false;
     }
 }
 
-void Torno::procesarPieza(){
+bool Torno::procesarPieza(){
 if(this-> Torno::puedeProcesar()){
 if(this-> Torno::fallaDeTorno()){
 this->estadoFalla = true;
 this->apagar();
 this->registrarMantenimiento();
-this->mantenimiento();
+this->realizarMantenimiento();
 }
     this-> Torno::registrarPiezaTorno();
     this-> Torno::agregarTiempoTorno(this-> Torno::getSegundos());
 }
+ return 0;
 }

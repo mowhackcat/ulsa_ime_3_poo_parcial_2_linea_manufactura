@@ -15,8 +15,8 @@ Husillo husillo;
 public:
 Torno(int id, const std::string& nombre);
 bool fallaDeTorno();
-void mantenimiento();
-void procesarPieza();
+void realizarMantenimiento();
+bool procesarPieza();
 void registrarPiezaTorno();
 void reportarFallaTorno();
 void agregarTiempoTorno(int segundos);

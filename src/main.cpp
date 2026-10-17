@@ -9,12 +9,12 @@
 //   ./planta
 
 #include <iostream>
-#include "Planta.h"
-#include "TornoCNC.h"
+#include "../include/Planta.h"
+#include "../include/TornoCNC.h"
 //include
 //include
 //include
-#include "Impresora3D.h"
+#include "../include/Impresora3D.h"
 
 int main() {
     // 1. Crear las máquinas y registrarlas en la planta.
