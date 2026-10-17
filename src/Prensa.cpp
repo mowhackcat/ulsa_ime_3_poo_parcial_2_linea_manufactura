@@ -20,13 +20,13 @@ Prensa::Prensa(int id, const std::string& nombre, int tiempoPorPieza, int vidaTr
 
 bool Prensa::doblarPieza() {
     if (!puedeProcesar()) {
-        std::cout << "[" << getNombre() << "] Rechazo de operación: la máquina está apagada o en falla.\n";
         return false;
     }
 
     if (troquel.getVidaUtilRestante() <= 0) {
         reportarFalla();
-        std::cout << "[" << getNombre() << "] FALLA: El troquel ha alcanzado su límite de desgaste.\n";
+        registrarMantenimiento();
+        getParos();
         return false;
     }
 
@@ -34,11 +34,8 @@ bool Prensa::doblarPieza() {
     registrarPieza();
     agregarTiempo(tiempoPorPieza);
 
-    std::cout << "[" << getNombre() << "] Pieza doblada con éxito (" << fuerzaTension << " kN).\n";
-
     if (troquel.getVidaUtilRestante() == 0) {
         reportarFalla();
-        std::cout << "[" << getNombre() << "] ALERTA: Troquel desgastado por completo. Se requiere mantenimiento.\n";
     }
 
     return true;
@@ -47,7 +44,6 @@ bool Prensa::doblarPieza() {
 void Prensa::realizarMantenimiento() {
     troquel.restaurar();
     registrarMantenimiento();
-    std::cout << "[" << getNombre() << "] Mantenimiento realizado: Troquel reemplazado/restaurado exitosamente.\n";
 }
 
 void Prensa::mostrarEstado() const {
@@ -73,4 +69,7 @@ int Prensa::getFuerzaTension() const {
 
 const Troquel& Prensa::getTroquel() const {
     return troquel;
+}
+bool Prensa::procesarPieza(){
+    return doblarPieza();
 }

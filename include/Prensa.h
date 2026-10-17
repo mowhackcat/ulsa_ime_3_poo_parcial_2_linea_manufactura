@@ -18,7 +18,7 @@ public:
 
     bool doblarPieza();
     void realizarMantenimiento();
-
+    bool procesarPieza();
     void setFuerzaTension(int fuerza);
     int getFuerzaTension() const;
     const Troquel& getTroquel() const;

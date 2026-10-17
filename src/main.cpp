@@ -11,7 +11,7 @@
 #include <iostream>
 #include "../include/Planta.h"
 #include "../include/TornoCNC.h"
-//include
+#include "../include/Prensa.h"
 //include
 //include
 #include "../include/Impresora3D.h"
@@ -20,16 +20,16 @@ int main() {
     // 1. Crear las máquinas y registrarlas en la planta.
 
 Torno torno1(1, "TornoCnC");
-//clase
+
 //
-//
+Prensa prensa1(4, "Prensa", 30, 10, 100);
 Impresora3D impresora3d1(5,"Bambu Labs", 15);
 
 Planta planta1(20);
 
 planta1.agregarMaquina(&torno1);
 planta1.agregarMaquina(&impresora3d1);
-//planta.1
+planta1.agregarMaquina(&prensa1);
 //planta.1
 //planta.1
 planta1.encenderMaquinas();
@@ -37,10 +37,9 @@ planta1.encenderMaquinas();
 for(int x =0; x < planta1.getRepeticionesGlobales();x++)
 {
 torno1.procesarPieza();
-impresora3d1.procesarPieza();
 //x.procesarPieza();
-//y.procesarPieza();
-//z.procesarPieza();
+prensa1.procesarPieza();
+impresora3d1.procesarPieza();
 }
 
 planta1.mostrar();
