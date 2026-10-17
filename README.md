@@ -46,7 +46,7 @@ Lote de 20 piezas. Una fila por máquina.
 | Máquina | Segundos por pieza | Límite del componente | Fallas en 20 piezas | Tiempo trabajado |
 | --- | ---: | ---: | ---: | ---: |
 | Torno CNC | 30 | 8 | 2 | 600 |
-|  |  |  |  |  |
+| CortadoraLaser | 300 | 15 | 5 | 4500 |
 | fresadora | 100 | 5 | 15 | 100 |
 | Prensa | 30 | 10 | 2 | 300 |
 | Impresora3D | 120 | 15 | 1 | 2400 |

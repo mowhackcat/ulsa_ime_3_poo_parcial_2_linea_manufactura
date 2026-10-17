@@ -12,13 +12,10 @@ CortadoraLaser::CortadoraLaser(
 
 bool CortadoraLaser::procesarPieza() {
     if (!puedeProcesar()) {
-        std::cout << getNombre()
-                  << ": no puede procesar; esta apagada o en falla.\n";
         return false;
     }
 
     if (lente.estaOpaco()) {
-        std::cout << "El lente esta opaco.\n";
         reportarFalla();
         return false;
     }
@@ -27,12 +24,8 @@ bool CortadoraLaser::procesarPieza() {
     agregarTiempo(tiempoPorPieza);
     lente.acumularSuciedad(1);
 
-    std::cout << getNombre()
-              << ": pieza cortada en "
-              << tiempoPorPieza << " segundos.\n";
 
     if (lente.estaOpaco()) {
-        std::cout << "El lente alcanzo su limite de suciedad.\n";
         reportarFalla();
     }
 

@@ -19,18 +19,14 @@ bool Fresadora::procesarPieza(){
 
 bool Fresadora::ranurar() {
     if (!puedeProcesar()) {
-        std::cout
-            << "No se puede ranurar: maquina apagada o en falla.\n";
         return false;
     }
 
     if (herramienta.necesitaMantenimiento()) {
         reportarFalla();
-        std::cout << "Falla: herramienta de corte desgastada.\n";
         return false;
     }
 
-    std::cout << "Fresadora: ranurando pieza...\n";
 
     registrarPieza();
     agregarTiempo(tiempoPorPieza);
@@ -38,8 +34,6 @@ bool Fresadora::ranurar() {
 
     if (herramienta.desgastar()) {
         reportarFalla();
-        std::cout
-            << "Falla: la herramienta alcanzo su limite de desgaste.\n";
     }
 
     return true;
@@ -47,16 +41,13 @@ bool Fresadora::ranurar() {
 
 void Fresadora::realizarMantenimiento() {
     if (!estaEnFalla()) {
-        std::cout << "La fresadora no presenta fallas.\n";
         return;
     }
 
     herramienta.restaurar();
     registrarMantenimiento();
 
-    std::cout
-        << "Mantenimiento completado. Herramienta restaurada.\n";
-}
+    }
 
 void Fresadora::mostrarEstado() const {
     Maquina::mostrarEstado();

@@ -13,24 +13,24 @@
 #include "../include/TornoCNC.h"
 #include "../include/Prensa.h"
 #include "../include/Fresadora.h"
-//include
+#include "../include/CortadoraLaser.h"
 #include "../include/Impresora3D.h"
 
 int main() {
     // 1. Crear las máquinas y registrarlas en la planta.
 
 Torno torno1(1, "TornoCnC");
-
-//
+CortadoraLaser cortadoralaser1(2, "CortadoraLaser", 300, 15);
+Fresadora fresadora1(3,"Fresadora", 100, 5);
 Prensa prensa1(4, "Prensa", 30, 10, 100);
 Impresora3D impresora3d1(5,"Bambu Labs", 15);
-Fresadora fresadora1(3,"Fresadora", 100, 5);
+
 Planta planta1(20);
 
 planta1.agregarMaquina(&torno1);
+planta1.agregarMaquina(&cortadoralaser1);
 planta1.agregarMaquina(&fresadora1);
 planta1.agregarMaquina(&prensa1);
-
 planta1.agregarMaquina(&impresora3d1);
 
 planta1.encenderMaquinas();
@@ -38,6 +38,7 @@ planta1.encenderMaquinas();
 for(int x =0; x < planta1.getRepeticionesGlobales();x++)
 {
 torno1.procesarPieza();
+cortadoralaser1.procesarPieza();
 fresadora1.procesarPieza();
 prensa1.procesarPieza();
 impresora3d1.procesarPieza();
