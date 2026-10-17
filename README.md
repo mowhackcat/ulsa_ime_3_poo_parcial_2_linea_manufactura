@@ -47,7 +47,7 @@ Lote de 20 piezas. Una fila por máquina.
 | --- | ---: | ---: | ---: | ---: |
 | Torno CNC | 30 | 8 | 2 | 600 |
 |  |  |  |  |  |
-|  |  |  |  |  |
+| fresadora | 100 | 5 | 15 | 100 |
 | Prensa | 30 | 10 | 2 | 300 |
 | Impresora3D | 120 | 15 | 1 | 2400 |
 

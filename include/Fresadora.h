@@ -18,7 +18,7 @@ public:
     bool ranurar();
     void realizarMantenimiento();
     void mostrarEstado() const;
-
+    bool procesarPieza();
     int getRanurasRealizadas() const;
     int getTiempoPorPieza() const;
 };

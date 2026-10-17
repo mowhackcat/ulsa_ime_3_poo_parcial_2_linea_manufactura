@@ -13,6 +13,9 @@ Fresadora::Fresadora(int id, const std::string& nombre,
             "El tiempo por pieza debe ser mayor que cero.");
     }
 }
+bool Fresadora::procesarPieza(){
+    return ranurar();
+}
 
 bool Fresadora::ranurar() {
     if (!puedeProcesar()) {
