@@ -8,11 +8,11 @@
 
 **¿Es una mejora o una corrección?**
 
-
+si es una mejora
 
 **¿Qué observaste en la solución del equipo que dio origen a la propuesta?**
 
-Observé que en la solución actual, cuando un componente (como el Troquel de la Prensa) se desgasta y causa una falla, la línea se detiene y requiere que el mantenimiento sea asignado o intervenido de forma manual. Además, no existe un mecanismo de prevención que alerte cuando un componente está a punto de llegar a su límite crítico antes de que la máquina falle por completo.
+Observé que en la solución actual, cuando un componente (como el Troquel de la Prensa) se desgasta y causa una falla, la línea se detiene y requiere que el mantenimiento sea asignado o intervenido de forma manual. Además, no existe un mecanismo de prevención que alerte cuando un componente está a punto de llegar a su límite antes de que la máquina falle por completo.
 
 **¿Qué mejora o qué corrige, y por qué vale la pena?**
 
@@ -46,4 +46,4 @@ Planta: Se integra con el GestorMantenimiento para pausar la línea de manera co
 
 Diagrama hecho en draw.io que muestre la solución con la mejora incorporada. Distingue lo nuevo de lo existente, por ejemplo con otro color. Guarda la imagen en esta misma carpeta y enlázala aquí.
 
-[Inserta aquí tu diagrama]
+![diagrama mejora](<Diagrama de mejora.drawio.png>)
